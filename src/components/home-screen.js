@@ -12,8 +12,6 @@ const HomeScreen = () => {
         setUsers(JSON.parse(localStorage.getItem("HELP_NOW_CHAT")) || {})
     }, [])
     useEffect(() => {
-        console.log("CHAGE");
-        console.log(users);
         localStorage.setItem("HELP_NOW_CHAT", JSON.stringify(users))
     }, [users])
     return <div style={{ height: "inherit", display: "flex", flexDirection: "column" }}>
@@ -29,7 +27,7 @@ const HomeScreen = () => {
                     setSelectedUserId={setSelectedUserId}
                 />
             </div>
-            <div style={{ backgroundImage: `url(${MainBodyBackgroundImage})`, width: "80%", overflowY: "hidden" }}>
+            <div style={{ backgroundImage: `url(${MainBodyBackgroundImage})`, width: "80%", overflowY: "hidden", display: "flex" }}>
                 <ChatBody
                     users={users}
                     setUsers={setUsers}

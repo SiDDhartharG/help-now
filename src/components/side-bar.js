@@ -1,7 +1,5 @@
 import { Button } from '@mui/material';
 import React, { useState } from 'react';
-import Modal from '@mui/material/Modal';
-import Box from '@mui/material/Box';
 import AddUserModal from './add-user-modal';
 
 const SideBar = ({ users, setUsers, selectedUserId, setSelectedUserId }) => {
