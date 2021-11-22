@@ -1,8 +1,16 @@
 import React from 'react';
 
-const SideBar = () => {
+const SideBar = ({ users, setUsers, selectedUserId, setSelectedUserId }) => {
+    const showAllUsers = () => {
+        return Object.keys(users).map(userId => <div>
+            {users[userId].name}
+        </div>)
+    }
+    const showNoUserAdded = () => {
+        return <div>No User Added</div>
+    }
     return <div>
-        Header
+        {Object.keys(users).length > 0 ? showAllUsers() : showNoUserAdded()}
     </div>
 }
 
