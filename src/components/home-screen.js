@@ -12,6 +12,8 @@ const HomeScreen = () => {
         setUsers(JSON.parse(localStorage.getItem("HELP_NOW_CHAT")) || {})
     }, [])
     useEffect(() => {
+        console.log("CHAGE");
+        console.log(users);
         localStorage.setItem("HELP_NOW_CHAT", JSON.stringify(users))
     }, [users])
     return <div style={{ height: "inherit", display: "flex", flexDirection: "column" }}>

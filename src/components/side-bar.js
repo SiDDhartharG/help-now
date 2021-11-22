@@ -1,15 +1,30 @@
-import React from 'react';
+import { Button } from '@mui/material';
+import React, { useState } from 'react';
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+import AddUserModal from './add-user-modal';
 
 const SideBar = ({ users, setUsers, selectedUserId, setSelectedUserId }) => {
+    const [isAddUserModelOpen, setIsAddUserModelOpen] = useState(false)
     const showAllUsers = () => {
-        return Object.keys(users).map(userId => <div>
-            {users[userId].name}
+        return Object.keys(users).map(userId => <div onClick={() => setSelectedUserId(userId)}>
+            {users[userId].user_name}
         </div>)
     }
     const showNoUserAdded = () => {
         return <div>No User Added</div>
     }
+    const onClickAddUserButton = () => {
+        setIsAddUserModelOpen(true)
+    }
     return <div>
+        <Button onClick={() => onClickAddUserButton()}>Add User</Button>
+        <AddUserModal
+            setUsers={setUsers}
+            users={users}
+            isAddUserModelOpen={isAddUserModelOpen}
+            setIsAddUserModelOpen={setIsAddUserModelOpen}
+        />
         {Object.keys(users).length > 0 ? showAllUsers() : showNoUserAdded()}
     </div>
 }
