@@ -27,6 +27,7 @@ const AddUserModal = ({ isAddUserModelOpen, users, setUsers, setIsAddUserModelOp
             user_name: userName,
             messages: [],
         }
+        setUserName("")
         setUsers({ ...updateUser })
     }
     const isButtonDisabled = () => !(userName && userName !== "")

@@ -6,7 +6,7 @@ const ChatBody = ({ users, setUsers, selectedUserId, setSelectedUserId }) => {
     const onClickSendButton = () => {
         if (message !== "") {
             var userToUpdate = users
-            userToUpdate[selectedUserId].messages?.push({ text: message, time: Date.now() })
+            userToUpdate[selectedUserId].messages?.push({ text: message, time: new Date() })
             setUsers({ ...userToUpdate })
             setMessage("")
         }
