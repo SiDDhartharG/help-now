@@ -15,26 +15,22 @@ const HomeScreen = () => {
         localStorage.setItem("HELP_NOW_CHAT", JSON.stringify(users))
     }, [users])
     return <div style={{ height: "inherit", display: "flex", flexDirection: "column" }}>
-        <div style={{ height: "60px", background: "#59ebc4" }}>
+        <div style={{ height: "60px", background: "#59ebc4", position: "fixed", top: 0, right: 0, left: 0 }}>
             <Header />
         </div>
-        <div style={{ display: "flex", flexGrow: 10 }}>
-            <div style={{ borderRight: "2px solid #babfbe", width: "20%", overflowY: "hidden" }}>
-                <SideBar
-                    users={users}
-                    setUsers={setUsers}
-                    selectedUserId={selectedUserId}
-                    setSelectedUserId={setSelectedUserId}
-                />
-            </div>
-            <div style={{ backgroundImage: `url(${MainBodyBackgroundImage})`, width: "80%", overflowY: "hidden", display: "flex" }}>
-                <ChatBody
-                    users={users}
-                    setUsers={setUsers}
-                    selectedUserId={selectedUserId}
-                    setSelectedUserId={setSelectedUserId}
-                />
-            </div>
+        <div style={{ marginTop: "60px", display: "flex", flexGrow: 10 }}>
+            <SideBar
+                users={users}
+                setUsers={setUsers}
+                selectedUserId={selectedUserId}
+                setSelectedUserId={setSelectedUserId}
+            />
+            <ChatBody
+                users={users}
+                setUsers={setUsers}
+                selectedUserId={selectedUserId}
+                setSelectedUserId={setSelectedUserId}
+            />
         </div>
     </div >
 }

@@ -3,16 +3,11 @@ import { deepPurple } from '@mui/material/colors';
 import React, { useState } from 'react';
 import AddUserModal from './add-user-modal';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import { getDateToDisplay } from '../utils';
 
 const SideBar = ({ users, setUsers, selectedUserId, setSelectedUserId }) => {
     const [isAddUserModelOpen, setIsAddUserModelOpen] = useState(false)
-    const getDateToDisplay = (date) => {
-        var newDate = new Date(date)
-        return `${newDate.getDate()}/${newDate.getMonth()}/${newDate.getFullYear()}`
-
-    }
     const showAllUsers = () => {
-        console.log(users);
         return Object.keys(users).map(userId => <div style={{ padding: "5px 3px", display: "flex", alignItems: "center" }} onClick={() => setSelectedUserId(userId)}>
             <Avatar sx={{ bgcolor: deepPurple[500] }}>{users[userId]?.user_name[0]}</Avatar>
             <div style={{ display: "flex", flexGrow: 10, justifyContent: "space-between", padding: "4px" }}>
@@ -30,7 +25,7 @@ const SideBar = ({ users, setUsers, selectedUserId, setSelectedUserId }) => {
     const onClickAddUserButton = () => {
         setIsAddUserModelOpen(true)
     }
-    return <div>
+    return <div style={{ position: "fixed", left: 0, bottom: 0, top: "60px", borderRight: "1px solid gray", zIndex: 2, width: "20%", overflowY: "hidden" }}>
         <div onClick={() => onClickAddUserButton()} style={{ fontWeight: 600, borderBottom: "1px solid #babfbe", padding: "5px", display: "flex", alignItems: "center", justifyContent: "center" }}>
             <AddCircleIcon sx={{ fontSize: 40, color: "#59ebc4" }} /> Add User
         </div>
