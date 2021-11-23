@@ -13,7 +13,7 @@ const SideBar = ({ users, setUsers, selectedUserId, setSelectedUserId }) => {
             <div style={{ display: "flex", flexGrow: 10, justifyContent: "space-between", padding: "4px" }}>
                 <div>
                     <div style={{ fontWeight: 700 }}>{users[userId]?.user_name}</div>
-                    {users[userId]?.messages?.length > 0 && <div style={{ fontSize: "11px" }}>{users[userId]?.messages[users[userId]?.messages?.length - 1].text} </div>}
+                    {users[userId]?.messages?.length > 0 && <div style={{ fontSize: "11px" }}>{users[userId]?.messages[users[userId]?.messages?.length - 1]?.text} </div>}
                 </div>
                 {users[userId]?.messages?.length > 0 && <div style={{ fontSize: "11px" }}>{getDateToDisplay(users[userId]?.messages[users[userId]?.messages?.length - 1].time)} </div>}
             </div>
