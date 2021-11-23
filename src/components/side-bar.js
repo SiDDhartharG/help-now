@@ -1,4 +1,4 @@
-import { Avatar, Button } from '@mui/material';
+import { Avatar } from '@mui/material';
 import { deepPurple } from '@mui/material/colors';
 import React, { useState } from 'react';
 import AddUserModal from './add-user-modal';

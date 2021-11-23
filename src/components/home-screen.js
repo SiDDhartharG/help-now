@@ -15,9 +15,7 @@ const HomeScreen = () => {
         localStorage.setItem("HELP_NOW_CHAT", JSON.stringify(users))
     }, [users])
     return <div style={{ height: "inherit", display: "flex", flexDirection: "column" }}>
-        <div style={{ height: "60px", background: "#59ebc4", position: "fixed", top: 0, right: 0, left: 0 }}>
-            <Header />
-        </div>
+        <Header />
         <div style={{ marginTop: "60px", display: "flex", flexGrow: 10 }}>
             <SideBar
                 users={users}
