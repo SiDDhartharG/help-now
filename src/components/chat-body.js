@@ -10,6 +10,7 @@ const ChatBody = ({ users, setUsers, selectedUserId, setSelectedUserId }) => {
             var userToUpdate = users
             userToUpdate[selectedUserId].messages?.push({ sender: "CurrentUser", text: message, time: new Date() })
             setUsers({ ...userToUpdate })
+            document.getElementById("all-messages").scrollTop = document.getElementById("all-messages").scrollHeight + 60
             setMessage("")
         }
     }
@@ -18,7 +19,7 @@ const ChatBody = ({ users, setUsers, selectedUserId, setSelectedUserId }) => {
         <div style={{ background: "white", position: "fixed", top: "60px", width: "80%", height: "50px", borderBottom: "1px solid #babfbe", zIndex: "1" }}>
             {users[selectedUserId].user_name}
         </div>
-        <div style={{ overflowY: "scroll", flexGrow: 10, backgroundImage: `url(${MainBodyBackgroundImage})`, position: "fixed", top: "110px", bottom: "50px", width: "80%" }}>
+        <div id="all-messages" style={{ overflowY: "scroll", flexGrow: 10, backgroundImage: `url(${MainBodyBackgroundImage})`, position: "fixed", top: "110px", bottom: "70px", width: "80%" }}>
             {users[selectedUserId].messages?.map(message => <MessageBox message={message} />)}
         </div>
         <div style={{ background: "white", position: "fixed", bottom: 0, width: "79%", justifyContent: "space-around", display: "flex", alignItems: "center", padding: "10px", height: "50px", borderTop: "1px solid #babfbe" }}>
