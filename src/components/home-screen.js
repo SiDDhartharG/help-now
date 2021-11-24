@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import MainBodyBackgroundImage from '../utils/mainBodyBackground.jpg'
 import Header from './header';
 import SideBar from './side-bar';
 import ChatBody from './chat-body';
